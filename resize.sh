@@ -39,7 +39,7 @@ do
 			# the smalles site and keep aspect ratio
 			convert "$filename" -resize "$minSize"x"$minSize"^ "$destDir/$basename"
 			(( convertedCnt++ ))
-			printf "\t \033[0;32mConverted\033[0m\n"
+			printf "\t \033[0;32mResized\033[0m\n"
 			# Store name of converted file in log file if a log file was specified
 			if [[ -n "$logFile" ]]; then
 				echo "$basename" >> "$logFile"
