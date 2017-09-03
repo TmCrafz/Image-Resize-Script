@@ -28,7 +28,6 @@ for filename in "$sourceDir"/*
 do
 	# Name without dir
 	basename="$(basename "$filename")"
-	echo "BASENAME: $basename"
 	# Only convert files
 	if [ -f "$filename" ]; then
 		echo "($cnt/$totalFileCnt) $filename"
