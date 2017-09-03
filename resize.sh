@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#sourceDir="TestData"
-#destDir="Converted"
-
 sourceDir="$1"
 destDir="$2"
 minSize="$3"
