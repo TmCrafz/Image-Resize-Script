@@ -27,17 +27,18 @@ cnt=1
 for filename in "$sourceDir"/*
 do
 	# Name without dir
-	basename="$(basename $filename)"
+	basename="$(basename "$filename")"
+	echo "BASENAME: $basename"
 	# Only convert files
 	if [ -f "$filename" ]; then
 		echo "($cnt/$totalFileCnt) $filename"
 		(( cnt++ ))
-		width="$(identify -format '%w' $filename)"
-		height="$(identify -format '%h' $filename)"
+		width="$(identify -format '%w' "$filename")"
+		height="$(identify -format '%h' "$filename")"
 		if (($width < $minSize || $height < $minSize)); then
 			# Resize image (with ImageMagick) to a min length of the given min size of 
 			# the smalles site and keep aspect ratio
-			convert $filename -resize "$minSize"x"$minSize"^ $destDir/$basename
+			convert "$filename" -resize "$minSize"x"$minSize"^ "$destDir/$basename"
 			(( convertedCnt++ ))
 			printf "\t \033[0;32mConverted\033[0m\n"
 			# Store name of converted file in log file if a log file was specified
